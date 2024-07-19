@@ -1,0 +1,22 @@
+<div class="centered-content">
+    <div class="modal-box">
+        <h2 class="title new-list-title">
+            Update a List
+        </h2>
+        <div class="field is-grouped new-list-input-container">
+            <p class="control is-expanded">
+                <!-- using a template reference variable with # to store data locally and pass it in a func -->
+                <input #listTitleInput class="input is-medium" type="text" placeholder="Enter Title">
+            </p>
+            <p class="control">
+                <!-- now using that template reference variables value to pass it -->
+                <a class="button is-info is-medium" (click)="updateList(listTitleInput.value)">  
+                    Update List
+                </a>
+            </p>
+        </div>
+        <button class="go-back-button button" routerLink="/">
+            Go Back
+        </button>
+    </div>
+</div>

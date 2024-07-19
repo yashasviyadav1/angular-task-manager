@@ -1,0 +1,94 @@
+<div class="centered-content">
+    <div class="task-manager-container">
+
+        <!-- left side -->
+        <div class="sidebar">
+            <h1 class="title has-text-primary">
+                Group
+            </h1>
+            <div class="list-menu">
+                <!-- <a class="list-menu-item is-active">
+                    <p>Group 1</p>
+                </a>
+                <a class="list-menu-item is-active">
+                    <p>Group 1</p>
+                </a> -->
+                <!-- <a class="list-menu-item">
+                    <p>Group 2</p>
+                </a>
+                <a class="list-menu-item">
+                    <p>Group 3</p> 
+                </a> -->
+
+                <!-- this RouterLinkActive is property using which whichever list will be active we will set the is-active value to true means it will now be highlited -->
+                <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists', list._id]" routerLinkActive="is-active">
+                    <p>{{list.title}}</p>
+                </a>   
+
+            </div> 
+            <!-- this navigate to new list methonds will redirect our page to '/new-list' route defined in task-view.component.ts -->
+            <!-- <button class="is-primary create-task-btn" (click)="navigateToNewList()">   -->
+            <button class="is-primary create-task-btn" routerLink="/new-list">  
+                Create List
+            </button> 
+        </div>
+
+        <!-- right side  -->
+        <div class="task-list-container">
+            <div class="topbar">
+                <h1 class="title has-text-primary">
+                    Tasks
+                </h1>
+                <div class="dropdown is-hoverable is-right">
+                    <div class="dropdown-trigger">
+                      <button class="button" aria-haspopup="true" >
+                        <span>Settings</span>
+                        <!-- <span class="icon is-small">
+                          <i class="fas fa-cog" aria-hidden="true"></i>
+                        </span>  -->
+                      </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                        <div class="dropdown-content">
+                          <a [routerLink]="['/edit-list', selectedListId]" class="dropdown-item">
+                             Edit 
+                          </a>
+                          <a class="dropdown-item has-text-danger" (click)="onDeleteListClick()">
+                             Delete
+                         </a>
+                          
+                        </div>
+                      </div>
+                  </div>
+                  
+            </div>
+            
+            <div class="task-menu">
+                <div class="task" *ngFor="let task of tasks" (click)="onTaskClick(task)" [ngClass]="{ 'completed': task.completed}">
+                    <div class="task-text">
+                        <p>{{task.title}}</p>
+                    </div>
+                    <div class="task-buttons">
+                        <button class="button icon task-buttons-item" [routerLink]="['/lists', selectedListId, 'edit-task', task._id]">
+                            <div class="icon">
+                                ✏️
+                            </div>
+                        </button>
+                        <button class="button icon task-buttons-item" (click)="onDeleteTaskClick(task._id)">
+                            <div class="icon">
+                                🗑️
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="add-task-button-container">
+                <!-- ./new-task means currecnly we are on lists/:listid so go to  lists/:listid/new-task  -->
+                <button class="button is-dark add-task-button" routerLink="./new-task">
+                    + New Task
+                </button>
+            </div>
+        </div>
+    </div> 
+    
+</div>

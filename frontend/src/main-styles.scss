@@ -1,0 +1,65 @@
+// for global styles and modifying variable values
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
+
+
+$turquoise: #44ddd0;
+$green: #27d7a1;
+$light-green: #45f69e; 
+$dark-green: rgb(0, 100, 80);
+
+$light: #f8f8f8;
+
+//updation
+$family-sans-serif: "Nunito", sans-serif;
+$primary: $green;
+
+$link: $turquoise;
+
+
+// Update some of Bulma's component variables
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+
+// Set custom global styles (will be applied to whole app)
+
+html {
+    background: linear-gradient(to right top, $turquoise, $green);
+}
+html, body {
+    height: 100%;
+}
+
+.centered-content{
+    // border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #111315;
+}
+
+
+.modal-box{
+    width: 100%;
+    min-height: 170px;
+    max-width: 600px;
+    border-radius: 8px;
+    background-color: #24272a;
+    box-shadow: rgba(255, 255, 255, 0.35) 0px 2px 8px 0px;
+    padding: 30px;
+    
+}
+
+.new-list-title{
+    margin-bottom: 20px;
+}
+
+.go-back-button{
+    padding: 10px;
+    margin-top: 9px;
+    color: #66D1FF;
+}
