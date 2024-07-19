@@ -2,18 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/frontend/browser/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "dist/frontend/server/**/*.js",
-      "use": "@vercel/node"
+      "src": "angular.json",
+      "use": "@vercel/angular"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/frontend/browser/index.html"
+      "dest": "/index.html"
     }
   ]
 }
