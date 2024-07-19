@@ -14,12 +14,13 @@ export class WebRequestService {
   readonly ROOT_URL;
 
   constructor(private http: HttpClient) { 
-    this.ROOT_URL = 'http://localhost:3000';
+    // this.ROOT_URL = 'http://localhost:3000';
+    this.ROOT_URL = 'https://angular-taskmanager-backend.vercel.app';
   }
 
   get(uri: string){
      return this.http.get(`${this.ROOT_URL}/${uri}`);
-  }
+  } 
 
   post(uri: string, payload: Object){
     return this.http.post(`${this.ROOT_URL}/${uri}`, payload);
