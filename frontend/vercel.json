@@ -1,15 +1,19 @@
 {
-    "builds": [
-      {
-        "src": "dist/frontend/**/*",
-        "use": "@vercel/static"
-      }
-    ],
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/frontend/browser/**/*",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "dist/frontend/server/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/frontend/browser/index.html"
+    }
+  ]
+}
